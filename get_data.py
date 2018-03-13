@@ -3,12 +3,11 @@ import urllib.request as request
 from sklearn.preprocessing import LabelEncoder
 
 def download():
-    # Source: https://chronicdata.cdc.gov/500-Cities/500-Cities-City-level-Data-GIS-Friendly-Format-201/dxpw-cm5u
     request.urlretrieve("https://chronicdata.cdc.gov/api/views/dxpw-cm5u/rows.csv?accessType=DOWNLOAD",
                         "data/dataset.csv")
 
     pd.read_csv("data/dataset.csv").to_csv("data/dataset.csv", index=False, columns=["StateAbbr",
-                                                                                     "PlaceName",
+                                                                                     # "PlaceName",
                                                                                      "BPHIGH_CrudePrev",
                                                                                      "CANCER_CrudePrev",
                                                                                      "CHD_CrudePrev",
